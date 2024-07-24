@@ -1,28 +1,28 @@
-<div class="mat-elevation-z8">
-  <div class="tool-bar">
-    <div class="asset-button-container">
-      <button mat-raised-button class="asset-button" (click)="openAddDialog()">
-        Add data
-      </button>
-      <button mat-raised-button class="asset-button" [matMenuTriggerFor]="menu">
-        Export data
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="onExportToCsv()">.csv</button>
-      </mat-menu>
-    </div>
-    <div class="search">
-      <mat-form-field appearance="fill" class="full-width">
-        <input
-          matInput
-          placeholder="Search by name, manufacturer, type, or serial"
-          [(ngModel)]="searchTerm"
-          (ngModelChange)="onSearch()"
-          #input
-        />
-      </mat-form-field>
-    </div>
+<div class="tool-bar">
+  <div class="asset-button-container">
+    <button mat-raised-button class="asset-button" (click)="openAddDialog()">
+      Add data
+    </button>
+    <button mat-raised-button class="asset-button" [matMenuTriggerFor]="menu">
+      Export data
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="onExportToCsv()">.csv</button>
+    </mat-menu>
   </div>
+  <div class="search">
+    <mat-form-field appearance="fill" class="full-width">
+      <input
+        matInput
+        placeholder="Search by ATM name, manufacturer, type, or serial"
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="onSearch()"
+        #input
+      />
+    </mat-form-field>
+  </div>
+</div>
+<div class="mat-elevation-z8">
   <table
     mat-table
     [dataSource]="dataSource"
@@ -81,7 +81,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="4">
+      <td class="mat-cell" colspan="6">
         No data matching the filter "{{ input.value }}"
       </td>
     </tr>
